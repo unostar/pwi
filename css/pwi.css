@@ -1,0 +1,72 @@
+.pwi_loader{
+	height: 60px;
+	width: 200;
+	border: 1px solid #7F7F7F;
+}
+
+.pwi_container{
+	color: #000000;
+	background-color: #e2e2e2;
+	font-family: "Trebuchet MS";
+	font-size: 8pt;
+	padding: 5px;
+}
+
+.pwi_container a{
+	color: #000000;
+}
+
+.pwi_album_description{
+	text-align: left;
+	color: #000000;
+	font-family: Arial;
+	font-size: 8pt;
+	background-color: #C2C2C2;
+	padding: 10px;
+
+}
+.pwi_album_description .title{
+	color: #000000;
+	font-size: 12pt;
+	margin-top: 10px;
+
+}
+.pwi_album_description .details{
+	color: #000000;
+	font-size: 8pt;
+	font-style: italic;
+}
+.pwi_album_description .description{
+	font-size: 10pt;
+	padding: 5px;
+}
+.pwi_album_description .sslink{
+
+}
+
+.pwi_album{
+	float: left;
+	margin: 1em;
+	text-align: center;
+	color: #000000;
+}
+.pwi_album img{
+	border: 0px solid #7F7F7F;
+}
+
+.pwi_photo{
+	float: left;
+	margin: 1em;
+	text-align: center;
+	border: 0px dotted white;
+}
+.pwi_photo img{
+	border: 0px solid #7F7F7F;
+}
+
+.pwi_pager{
+	clear: both;
+}
+.pwi_pager_current{
+	font-weight: bold;
+}
