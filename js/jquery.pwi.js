@@ -43,9 +43,9 @@
 		albumTypes: "public",
 		page: 1,
 		photoSize: 800,
-		maxResults: 50,
-		thumbSize: 72,
-		thumbCrop: 0,
+		maxResults: 20,
+		thumbSize: 160,
+		thumbCrop: 1,
 		thumbCss: {'margin' : '5px'},
 		onclickThumb: "",
 		showAlbumTitles: true,
@@ -56,17 +56,18 @@
 		showSlideshowLink: true,
 		showPhotoCaption: false,
 		showPhotoDate: true,
-		labels: {photo:"photo",
-				photos: "photos",
-				albums: "Back to albums",
-				slideshow: "Display slideshow",
-				loading: "PWI fetching data...",
-				page: "Page",
-				prev: "Previous",
-				next: "Next",
-				devider: "|"
+		labels: {
+			photo:"фото",
+			photos: "фото",
+			albums: "Вернуться к альбомам",
+			slideshow: "Показать слайдшоу",
+			loading: "Загружаю...",
+			page: "Страница",
+			prev: "Предыдущая",
+			next: "Следующая",
+			devider: "|"
 		},
-		months: ["January","February","March","April","May","June","July","August","September","October","November","December"],
+		months: ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"],
 		slimbox_config: {
 			loop: false,
 			overlayOpacity: 0.6,
@@ -83,7 +84,7 @@
 			nextKeys: [39, 83]
 		},
 		blockUIConfig: {
-			message: "<div class='lbLoading pwi_loader'>loading...</div>",
+			message: "<div class='lbLoading pwi_loader'>загружаю...</div>",
 			css: "pwi_loader"
 		},
 		albumstore: "",
