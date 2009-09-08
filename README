@@ -10,96 +10,91 @@ Well, first get the correct files on your server:
     * Add the following code and includes to your header: 
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> //-->This can be your local jquery lib, but why not have it hosted by google
-
 <link href="css/pwi.css" rel="stylesheet" type="text/css"/> //--contains the css used by PWI, change the settings in this file to create your own skin
 <script src="js/jquery.history.js" type="text/javascript"></script> //--this is needed to make PWI navigation work and it heavily relies on it
 <script src="js/jquery.pwi.js" type="text/javascript"></script> //-- The actual script :-)
 <script src="js/jquery.blockUI.js" type="text/javascript"></script> //--optional, shows the loading-box during ajax calls, little overhead
 <script src="js/jquery.slimbox2.js" type="text/javascript"></script> //-- makes a nice popup when clicking on a photo, otherwise your users are redirected to google-picasa-web, you can make your own, see the option onclickThumb below
-
 <script type="text/javascript">
 $(document).ready(function() {  //-- default jQuery call, do stuff when page is loaded
-            $("#container").pwi({  //--specify your DIV's ID here
-                username: 'tester'  //--REPLACE WITH YOUR PICASA NAME!!!! (see the url when visiting your albums at google, you notice it right after the domain. It's NOT your username by default!!!
-            });
-        });
-    </script>
+$("#container").pwi({  //--specify your DIV's ID here
+  username: 'picasawebusername'  //--REPLACE WITH YOUR PICASA NAME!!!! (see the url when visiting your albums at google, you notice it right after the domain. It's NOT your username by default!!!
+});
+});
+</script>
 
 That's it :-)
 
 To have more options set, here's an example how to do an options override:
 
 $(document).ready(function() {
-
-        var options = {
-                username: 'jquery.pwi',
-                mode: 'albums',
-                albums: ["Album1","Album2"],
-                thumbCss: { margin: '5px' },
-                onclickThumb: ""
-        };
-
-        $("#container").pwi(options);
-
+  var options = {
+    username: 'jquery.pwi',
+    mode: 'albums',
+    albums: ["Album1","Album2"],
+    thumbCss: { margin: '5px' },
+    onclickThumb: ""
+  };
+  $("#container").pwi(options);
 });
    
 
 OPTIONS
 
-                username: '',           <-- REQUIRED TO SET, NOT OPTIONAL, THE REST IS!!!
-                mode: 'albums',         //-- can be: album, albums, latest (default: "albums")
-                album: "",              //-- specify an album id if mode is 'album', default: ""
-                authKey: "",            //-- specify the authKey if you choose mode 'album' and specified an unlisted album from picasa, default: ""
-                albums: [],             //-- specify a lits of album id's if mode is 'albums', leave as [] to show all albums (ex. ['album1','album2'], default: []) 
-                albumCrop: 1,           //-- crop the thumbs of the albums (1 = yes / 0 = no, default: 1)
-                albumTitle: "",         //-- displays alternative album title if no title is specified in Picasa, default: ""
-                albumThumbSize: 160,    //-- specify thumbnail size of albums (default: 160, supported: 32, 48, 64, 72, 144, 160)
-                albumMaxResults: 999,   //-- display maximum number of albums (default: 999)
-                albumStartIndex: 1,     //-- Start album index, if albumMaxResults is set to less then the available albums. (default: 1)
-                albumTypes: "public",   //-- default: "public", currently not supported: "private", "all", "visible"
-                page: 1,                //-- default: 1, Set to page if mode is 'album' and you want to start at a certain page of the album when the page is loaded.
-                photoSize: 800,         //-- Photo size to link to in the album (default: 800, supported: 200, 288, 320, 400, 512, 576, 640, 720, 800)
-                maxResults: 50,         //-- Maximum amount of photo's per album page (default: 50)
-                thumbSize: 72,          //-- specify thumbnail size of photo's (default: 72, supported (un)cropped: 32, 48, 64, 72, 144, 160 and uncropped only: 200, 288, 320, 400, 512, 576, 640, 720, 800) 
-                thumbCrop: 0,           //-- crop the thumb of the photo's (default: 0, 1 = yes / 0 = no) cropping makes the thumbs square and gives consistent layout
-                thumbCss: {'margin' : '5px'}, //-- override and add custom styles for the thumbs (see http://docs.jquery.com/CSS/css#properties for specification)
-                onclickThumb: "",       //-- override click on photo thumb. specify a function to replace slimbox,see demo 3 for an example
-                showAlbumTitles: true,  //-- Display title underneath album thumbs
-                showAlbumdate: true,    //-- Display date underneath album thumbs
-                showAlbumPhotoCount: true,//-- Display amount of photo's in album underneath album thumb
-                showAlbumDescription: true,//-- Display album description on photo page
-                showAlbumLocation: true,//-- Display location (if specified) of album in album description on photo page
-                showSlideshowLink: true,//-- Display link to slideshow (native Picasa Web Album slideshow) on photo page
-                showPhotoCaption: false,//-- Show caption underneath photo thumb (not recommended to prevent layout issues)
-                showPhotoDate: true,//-- Show photo date in caption
-                labels: {photo:"photo", //-- override labels, to translate into your required language
-                                photos: "photos",
-                                albums: "Back to albums",
-                                slideshow: "Display slideshow",
-                                loading: "PWI fetching data...",
-                                page: "Page",
-                                prev: "Previous",
-                                next: "Next",
-                                devider: "|"
-                },
-                months: ["January","February","March","April","May","June","July","August","September","October","November","December"], --tranlate into your lanugage if needed
-                slimbox_config: {       //-- override default slimbox configuration and behaviour (see for details: http://code.google.com/p/slimbox/wiki/jQueryManual)
-                        loop: false,
-                        overlayOpacity: 0.6,
-                        overlayFadeDuration: 400,
-                        resizeDuration: 400,
-                        resizeEasing: "swing",
-                        initialWidth: 250,
-                        initlaHeight: 250,
-                        imageFadeDuration: 400,
-                        captionAnimationDuration: 400,
-                        counterText: "{x}/{y}",
-                        closeKeys: [27, 88, 67, 70],
-                        prevKeys: [37, 80],
-                        nextKeys: [39, 83]
-                },
-                blockUIConfig: {        //-- override default blockUI configuration and behaviour (see for details: http://malsup.com/jquery/block/#options )
-                        message: "<div class='lbLoading pwi_loader'>loading...<div>",
-                        css: "pwi_loader"
-                }
+        username: '',           <-- REQUIRED TO SET, NOT OPTIONAL, THE REST IS!!!
+        mode: 'albums',         //-- can be: album, albums, latest (default: "albums")
+        album: "",              //-- specify an album id if mode is 'album', default: ""
+        authKey: "",            //-- specify the authKey if you choose mode 'album' and specified an unlisted album from picasa, default: ""
+        albums: [],             //-- specify a lits of album id's if mode is 'albums', leave as [] to show all albums (ex. ['album1','album2'], default: []) 
+        albumCrop: 1,           //-- crop the thumbs of the albums (1 = yes / 0 = no, default: 1)
+        albumTitle: "",         //-- displays alternative album title if no title is specified in Picasa, default: ""
+        albumThumbSize: 160,    //-- specify thumbnail size of albums (default: 160, supported: 32, 48, 64, 72, 144, 160)
+        albumMaxResults: 999,   //-- display maximum number of albums (default: 999)
+        albumStartIndex: 1,     //-- Start album index, if albumMaxResults is set to less then the available albums. (default: 1)
+        albumTypes: "public",   //-- default: "public", currently not supported: "private", "all", "visible"
+        page: 1,                //-- default: 1, Set to page if mode is 'album' and you want to start at a certain page of the album when the page is loaded.
+        photoSize: 800,         //-- Photo size to link to in the album (default: 800, supported: 200, 288, 320, 400, 512, 576, 640, 720, 800)
+        maxResults: 50,         //-- Maximum amount of photo's per album page (default: 50)
+        thumbSize: 72,          //-- specify thumbnail size of photo's (default: 72, supported (un)cropped: 32, 48, 64, 72, 144, 160 and uncropped only: 200, 288, 320, 400, 512, 576, 640, 720, 800) 
+        thumbCrop: 0,           //-- crop the thumb of the photo's (default: 0, 1 = yes / 0 = no) cropping makes the thumbs square and gives consistent layout
+        thumbCss: {'margin' : '5px'}, //-- override and add custom styles for the thumbs (see http://docs.jquery.com/CSS/css#properties for specification)
+        onclickThumb: "",       //-- override click on photo thumb. specify a function to replace slimbox,see demo 3 for an example
+        showAlbumTitles: true,  //-- Display title underneath album thumbs
+        showAlbumdate: true,    //-- Display date underneath album thumbs
+        showAlbumPhotoCount: true,//-- Display amount of photo's in album underneath album thumb
+        showAlbumDescription: true,//-- Display album description on photo page
+        showAlbumLocation: true,//-- Display location (if specified) of album in album description on photo page
+        showSlideshowLink: true,//-- Display link to slideshow (native Picasa Web Album slideshow) on photo page
+        showPhotoCaption: false,//-- Show caption underneath photo thumb (not recommended to prevent layout issues)
+        showPhotoDate: true,//-- Show photo date in caption
+        labels: {photo:"photo", //-- override labels, to translate into your required language
+                        photos: "photos",
+                        albums: "Back to albums",
+                        slideshow: "Display slideshow",
+                        loading: "PWI fetching data...",
+                        page: "Page",
+                        prev: "Previous",
+                        next: "Next",
+                        devider: "|"
+        },
+        months: ["January","February","March","April","May","June","July","August","September","October","November","December"], --tranlate into your lanugage if needed
+        slimbox_config: {       //-- override default slimbox configuration and behaviour (see for details: http://code.google.com/p/slimbox/wiki/jQueryManual)
+                loop: false,
+                overlayOpacity: 0.6,
+                overlayFadeDuration: 400,
+                resizeDuration: 400,
+                resizeEasing: "swing",
+                initialWidth: 250,
+                initlaHeight: 250,
+                imageFadeDuration: 400,
+                captionAnimationDuration: 400,
+                counterText: "{x}/{y}",
+                closeKeys: [27, 88, 67, 70],
+                prevKeys: [37, 80],
+                nextKeys: [39, 83]
+        },
+        blockUIConfig: {        //-- override default blockUI configuration and behaviour (see for details: http://malsup.com/jquery/block/#options )
+                message: "<div class='lbLoading pwi_loader'>loading...<div>",
+                css: "pwi_loader"
+        }
      
