@@ -1,6 +1,5 @@
 .pwi_loader{
 	height: 60px;
-	width: 200;
 	border: 1px solid #7F7F7F;
 }
 
@@ -49,7 +48,14 @@
 	margin: 1em;
 	text-align: center;
 	color: #000000;
+	cursor: pointer;
 }
+
+.pwi_album_backlink{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
 .pwi_album img{
 	border: 0px solid #7F7F7F;
 }
@@ -67,6 +73,17 @@
 .pwi_pager{
 	clear: both;
 }
+.pwi_prevpage, .pwi_nextpage, .pwi_pager_page, .pwi_pager_current{
+	float: left;
+	margin: 5px;
+
+}
+.link{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
 .pwi_pager_current{
+	text-decoration: none;
 	font-weight: bold;
 }
