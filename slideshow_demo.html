@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
+<title>Picasa Slideshow Demo</title>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/uds/solutions/slideshow/gfslideshow.js" type="text/javascript"></script>
+<style type="text/css">
+#picasaSlideshow {
+  width:140px;
+  height:93px;
+}
+#picasaSlideshow img {
+  border:0;
+}
+</style>
+<script type="text/javascript">
+function OnLoad() {
+  var feed  = "http://picasaweb.google.com/data/feed/base/user/brestskayagazeta/albumid/5378640864963489841?alt=rss&kind=photo&hl=ru";
+  var options = {
+    displayTime:2000,
+    transistionTime:600,
+    scaleImages:true,
+    linkTarget:google.feeds.LINK_TARGET_BLANK
+  };
+  var ss = new GFslideShow(feed, "picasaSlideshow", options);
+}
+google.load("feeds", "1");
+google.setOnLoadCallback(OnLoad);
+</script>
+</head>
+
+<body>
+
+<h3>Picasa Slideshow Demo</h3>
+<div id="picasaSlideshow" class="gslideshow"><div class="feed-loading">Загружаю...</div></div>
+
+</body>
+</html>
